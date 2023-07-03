@@ -1,0 +1,13 @@
+﻿using AddressBook.Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AddressBook.Application.Contracts.Persistence
+{
+    public interface IEmailRepository:IGenericRepository<Email>
+    {
+    }
+}

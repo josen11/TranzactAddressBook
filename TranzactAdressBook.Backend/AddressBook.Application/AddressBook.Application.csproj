@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AddressBook.Domain\AddressBook.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
