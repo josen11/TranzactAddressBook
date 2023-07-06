@@ -2,7 +2,7 @@
 ### Solution technologies
 - ASP.Net Core (.NET 7.0)
 - In-Memery DB
-- Entity Framework
+- Entity Framework Core
 
 ### Solution Folder Structure 
 - AddressBook.API: Presentation Layer - Web API Project and DTOs
