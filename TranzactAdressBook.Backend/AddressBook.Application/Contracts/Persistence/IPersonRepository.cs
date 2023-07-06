@@ -9,5 +9,6 @@ namespace AddressBook.Application.Contracts.Persistence
 {
     public interface IPersonRepository : IGenericRepository<Person>
     {
+        Task<IEnumerable<Person>> GetAllAyncOrderedByDate();
     }
 }

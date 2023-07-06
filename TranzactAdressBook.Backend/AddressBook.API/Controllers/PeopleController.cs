@@ -1,14 +1,13 @@
 ﻿using AddressBook.API.DTO;
 using AddressBook.Domain;
-using AddressBook.Infrastructure;
+using AddressBook.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AddressBook.API.Controllers
 {
-    [ApiVersion("1.0")]
-    [Route("people")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PeopleController : ControllerBase
     {
