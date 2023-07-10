@@ -20,7 +20,7 @@ namespace AddressBook.API.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<Email>> GetEmail([FromRoute] long id)
+        public async Task<ActionResult> GetEmail([FromRoute] long id)
         {
             var email = await _emailRepository.GetByIdAsync(id);
             if (email is null)
@@ -32,7 +32,7 @@ namespace AddressBook.API.Controllers
 
         [HttpGet]
         [Route("People/{idPerson}")]
-        public async Task<ActionResult<Email>> GetByPerson([FromRoute] long idPerson)
+        public async Task<ActionResult> GetByPerson([FromRoute] long idPerson)
         {
             var email = await _emailRepository.GetAync(e => e.PersonId == idPerson);
             if (email is null)
@@ -43,7 +43,7 @@ namespace AddressBook.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Email>> PostEmail([FromBody] EmailDTO dto)
+        public async Task<ActionResult> PostEmail([FromBody] EmailDTO dto)
         {
             var person = await _personRepository.GetByIdAsync(dto.PersonId);
             if (person is null)
@@ -60,7 +60,7 @@ namespace AddressBook.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Email>>> GetAllEmail()
+        public async Task<ActionResult> GetAllEmail()
         {
             return Ok(await _emailRepository.GetAllAync());
         }

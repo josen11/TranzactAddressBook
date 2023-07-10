@@ -30,33 +30,9 @@ namespace AddressBook.API.Controllers
             }
             return Ok(person);
         }
-        /*
-       
-        [HttpGet]
-        public async Task<IActionResult> GetAsync(long id)
-        {
-            Person book = null;
-            try
-            {
-                //  await method - Asynchronously 
-                book = await _personRepository.GetAync(c=>c.Id==id);
-                if (book == null)
-                {
-                    return NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
 
-            // do more stuff
-
-            return Ok(book);
-        }
-         */
         [HttpPost]
-        public async Task<ActionResult<Person>> PostPeople([FromBody] PersonDTO dto)
+        public async Task<ActionResult> PostPeople([FromBody] PersonDTO dto)
         {
             var PersonToCreate = new Person()
             {
@@ -68,7 +44,7 @@ namespace AddressBook.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Person>>> GetAllPeople()
+        public async Task<ActionResult> GetAllPeople()
         {
           return Ok(await _personRepository.GetAllOrderedIncludedByDateAsync());
         }
