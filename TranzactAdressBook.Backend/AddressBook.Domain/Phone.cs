@@ -1,11 +1,13 @@
 ﻿using AddressBook.Domain.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace AddressBook.Domain
 {
     public class Phone: BaseDomainModel
     {
-        public string? PhoneNumber { get; set; }
-        public long PersonId { get; set; }
-        public virtual Person? Person { get; set; }
+        [Phone]
+        public string PhoneNumber { get; set; } = string.Empty;
+        public long? PersonId { get; set; }
+        public Person? Person { get; set; }
     }
 }

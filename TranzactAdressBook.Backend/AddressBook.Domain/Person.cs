@@ -6,9 +6,9 @@ namespace AddressBook.Domain
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public virtual ICollection<Address>? Addresses { get; set; }
-        public virtual ICollection<Phone>? Phones { get; set; }
-        public virtual ICollection<Email>? Emails { get; set; }
+        public ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public ICollection<Phone> Phones { get; set; } = new List<Phone>();
+        public ICollection<Email> Emails { get; set; } = new List<Email>();
 
     }
 }
