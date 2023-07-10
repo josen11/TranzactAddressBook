@@ -1,5 +1,4 @@
-﻿
-using AddressBook.Application.Contracts.Persistence;
+﻿using AddressBook.Application.Contracts.Persistence;
 using AddressBook.Domain;
 
 namespace AddressBook.Infrastructure.Persistence

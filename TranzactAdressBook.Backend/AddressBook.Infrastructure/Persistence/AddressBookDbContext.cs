@@ -1,7 +1,5 @@
 ﻿using AddressBook.Domain;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
-using System.Reflection.Metadata;
 
 namespace AddressBook.Infrastructure.Persistence
 {

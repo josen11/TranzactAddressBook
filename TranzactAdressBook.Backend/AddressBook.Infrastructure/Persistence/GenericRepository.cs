@@ -22,6 +22,7 @@ namespace AddressBook.Infrastructure.Persistence
         {
             return await _context.Set<T>().Where(predicate).ToListAsync();
         }
+        
         public async Task<IReadOnlyList<T>> GetAync(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, string? includeString = null, bool disableTracking = true)
         {
             IQueryable<T> query = _context.Set<T>();

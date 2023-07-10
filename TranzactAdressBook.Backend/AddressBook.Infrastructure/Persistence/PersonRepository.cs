@@ -1,9 +1,6 @@
-﻿
-using AddressBook.Application.Contracts.Persistence;
+﻿using AddressBook.Application.Contracts.Persistence;
 using AddressBook.Domain;
-using Azure.Core;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
 
 namespace AddressBook.Infrastructure.Persistence
 {
