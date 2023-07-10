@@ -1,6 +1,7 @@
 ﻿
 using AddressBook.Application.Contracts.Persistence;
 using AddressBook.Domain;
+using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 
@@ -13,9 +14,24 @@ namespace AddressBook.Infrastructure.Persistence
 
         }
 
-        public async Task<IEnumerable<Person>> GetAllAyncOrderedByDate()
+        public async Task<IEnumerable<Person>> GetAllOrderedIncludedByDateAsync()
         {
-            return await _context.People!.OrderByDescending(p => p.LastModifiedDate).ThenByDescending(p => p.CreatedDate).ToListAsync();
+            return await _context.People!
+                .Include(c => c.Emails)
+                .Include(c => c.Phones)
+                .Include(c => c.Addresses)
+                .OrderByDescending(p => p.LastModifiedDate)
+                .ThenByDescending(p => p.CreatedDate)
+                .ToListAsync();
+        }
+        public async Task<Person> GetIncludedByIdAsync(long id)
+        {
+            return await _context.People!
+                .Where(p => p.Id == id)
+                .Include(c => c.Phones)
+                .Include(c => c.Addresses)
+                .Include(c => c.Emails)
+                .FirstOrDefaultAsync();
         }
     }
 }
