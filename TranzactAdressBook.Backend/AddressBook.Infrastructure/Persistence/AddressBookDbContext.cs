@@ -1,6 +1,7 @@
 ﻿using AddressBook.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Reflection.Metadata;
 
 namespace AddressBook.Infrastructure.Persistence
 {
@@ -14,6 +15,27 @@ namespace AddressBook.Infrastructure.Persistence
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase(databaseName: "InMemoryAddressBook");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.Emails)
+                .WithOne(e => e.Person)
+                .HasForeignKey(e => e.PersonId)
+               .IsRequired(false);
+
+            modelBuilder.Entity<Person>()
+               .HasMany(e => e.Phones)
+               .WithOne(e => e.Person)
+               .HasForeignKey(e => e.PersonId)
+              .IsRequired(false);
+
+            modelBuilder.Entity<Person>()
+               .HasMany(e => e.Addresses)
+               .WithOne(e => e.Person)
+               .HasForeignKey(e => e.PersonId)
+              .IsRequired(false);
         }
 
         public DbSet<Address> Addresses { get; set; }
