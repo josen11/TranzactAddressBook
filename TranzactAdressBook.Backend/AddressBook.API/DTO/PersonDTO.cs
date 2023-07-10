@@ -1,4 +1,6 @@
-﻿namespace AddressBook.API.DTO
+﻿using AddressBook.Domain;
+
+namespace AddressBook.API.DTO
 {
     public class PersonDTO
     {

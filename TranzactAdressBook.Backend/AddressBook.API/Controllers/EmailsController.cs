@@ -7,5 +7,6 @@ namespace AddressBook.API.Controllers
     [ApiController]
     public class EmailsController : ControllerBase
     {
+
     }
 }

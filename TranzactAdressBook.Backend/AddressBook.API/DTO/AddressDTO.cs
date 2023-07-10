@@ -6,5 +6,6 @@
         public string? City { get; set; }
         public string? Country { get; set; }
         public string? Type { get; set; }
+        public int PersonId { get; set; }
     }
 }
