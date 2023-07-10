@@ -18,6 +18,9 @@ builder.Services.AddDbContext<AddressBookDbContext>(options =>
 // Add services to the Dependency Container.
 // builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddTransient<IPersonRepository, PersonRepository>();
+builder.Services.AddTransient<IEmailRepository, EmailRepository>();
+builder.Services.AddTransient<IPhoneRepository, PhoneRepository>();
+builder.Services.AddTransient<IAddressRepository, AddressRepository>();
 
 // Fix error:  A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32.
 builder.Services.AddControllers().AddJsonOptions(x =>
