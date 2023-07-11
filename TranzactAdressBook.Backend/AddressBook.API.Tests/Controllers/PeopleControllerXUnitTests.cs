@@ -46,7 +46,7 @@ namespace AddressBook.API.Tests.Controllers
                 PersonRepository repo = new PersonRepository(context);
                 var person = repo.GetByIdAsync(1);
                 // Assert
-                Assert.Equal(15, person.Id);
+                Assert.Equal(1, person.Id);
             }
 
         }
@@ -90,7 +90,7 @@ namespace AddressBook.API.Tests.Controllers
                 // Assert
                 Assert.IsType<OkObjectResult>(result); // Ensure 200 Response
                 Assert.Equal(HttpStatusCode.OK, (HttpStatusCode)result.StatusCode); // Ensure by HttpStatusCode
-                Assert.Equal("Josen", ((Person)actualresult).FirstName); // Ensure data integrity
+                Assert.Equal("Jose", ((Person)actualresult).FirstName); // Ensure data integrity
             }
         }
         [Fact]
@@ -131,7 +131,7 @@ namespace AddressBook.API.Tests.Controllers
                 var actualresult = result.Value;
 
                 // Assert
-                Assert.IsType<NotFoundResult>(result); // Ensure 404 Not found
+                Assert.Equal(HttpStatusCode.NotFound, (HttpStatusCode)result.StatusCode); // Ensure by HttpStatusCode
             }
         }
               
@@ -176,7 +176,7 @@ namespace AddressBook.API.Tests.Controllers
                 
                 // Assert
                 Assert.IsType<OkObjectResult>(result); // Ensure 200 Response
-                Assert.IsType<NotFoundResult>(result); // Ensure 404 Not found
+                //Assert.IsType<NotFoundResult>(result); // Ensure 404 Not found
                 Assert.Equal(HttpStatusCode.OK, (HttpStatusCode)result.StatusCode); // Ensure by HttpStatusCode
                 Assert.Equal(context.People.ToList().Count, ((List<Person>)actualresult).Count); // Ensure data integrity
             }
